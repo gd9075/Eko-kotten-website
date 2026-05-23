@@ -1,6 +1,6 @@
 /**
-* Template Name: PhotoFolio
-* Template URL: https://bootstrapmade.com/photofolio-bootstrap-photography-website-template/
+* Template Name: Logis
+* Template URL: https://bootstrapmade.com/logis-bootstrap-logistics-website-template/
 * Updated: Aug 07 2024 with Bootstrap v5.3.3
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
@@ -64,12 +64,7 @@
   const preloader = document.querySelector('#preloader');
   if (preloader) {
     window.addEventListener('load', () => {
-      setTimeout(() => {
-        preloader.classList.add('loaded');
-      }, 1000);
-      setTimeout(() => {
-        preloader.remove();
-      }, 2000);
+      preloader.remove();
     });
   }
 
@@ -108,6 +103,11 @@
   window.addEventListener('load', aosInit);
 
   /**
+   * Initiate Pure Counter
+   */
+  new PureCounter();
+
+  /**
    * Initiate glightbox
    */
   const glightbox = GLightbox({
@@ -132,5 +132,14 @@
   }
 
   window.addEventListener("load", initSwiper);
+
+  /**
+   * Frequently Asked Questions Toggle
+   */
+  document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle').forEach((faqItem) => {
+    faqItem.addEventListener('click', () => {
+      faqItem.parentNode.classList.toggle('faq-active');
+    });
+  });
 
 })();
